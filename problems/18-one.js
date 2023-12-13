@@ -3,8 +3,24 @@ Write a function `one` that accepts an array and a callback as arguments. The
 function should call the callback for each element of the array, passing in the
 element and its index. The function should return a boolean indicating whether
 or not exactly one element of the array results in true when passed into the callback.
+*/
 
-Examples:
+
+function one(array, cb) {
+  let trueCount = 0;
+
+  for(let i = 0; i < array.length; i++) {
+    if(cb(array[i], i)) {
+      trueCount++;
+    }
+  }
+  if(trueCount === 1) {
+    return true;
+  } else {
+    return false;
+  }
+}
+/*Examples:
 
 let result1 = one(['x', 'y', 'z'], function(el) {
     return el === 'a';
@@ -36,11 +52,6 @@ let result6 = one(['apple', 'dog', 'food', 'cat'], function(el, idx) {
 });
 console.log(result6);   // true
 *******************************************************************************/
-
-function one(array, cb) {
-  // Your code here 
-}
-
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
 try {
   module.exports = one;
