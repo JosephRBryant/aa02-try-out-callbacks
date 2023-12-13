@@ -23,21 +23,27 @@ let result3 = mySome(['soup', 'noodles', 'bike', 'ship'], function(ele) {
 console.log(result3);   // true
 *******************************************************************************/
 
+// function mySome(array, cb) {
+//     let bool = false;
+
+//     array.forEach((ele, i) => {
+//         if (cb(ele, i)) {
+//             bool = true
+//         }
+//     })
+//     return bool;
+// }
+
 function mySome(array, cb) {
     let bool = false;
-
-    array.forEach((ele, i) => {
-        if (cb(ele, i)) {
-            bool = true
+    array.filter((el, i) => {
+        if (cb(el, i)) {
+            bool = true;
         }
     })
     return bool;
 }
 
-let result1 = mySome([5, 1, 7, 9], function(ele, i) {
-    return ele === i;
-});
-console.log(result1);   // true
 
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
 try {
